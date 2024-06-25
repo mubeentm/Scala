@@ -1,12 +1,11 @@
 import scala.io.Source
 object Task4{
   def main(args : Array[String]) : Unit ={
-    val filepath = "C:\\Users\\Administrator\\Downloads\\stategdp.csv"
+    val filepath = "C:\\Users\\Administrator\\Downloads\\StatewiseGDP.csv"
     //Read the file from path
     val source = Source.fromFile(filepath)
     //to skip the header line
-    val lines = source.getLines().drop(1)
-
+    val lines = source.getLines().drop(1) // tail will avoid first line and use
     var maxGdp = 0.0
     var maxGdpState = ""
     var totalPercapitaincome = 0.0
@@ -34,7 +33,7 @@ object Task4{
     val averagepercapita = totalPercapitaincome / noofstate
 
     println(s"State with maximum GDP : $maxGdpState with a GDP of Rs. $maxGdp (Billion)")
-    println(s"Average Percapita income : Rs. $averagepercapita (Billion)")
-    println(s"Total GDP of Indian States and UT : Rs. $totalGdp (Billion)")
+    println(f"Average Percapita income : Rs. ${averagepercapita}%.2f (Billion)")
+    println(f"Total GDP of Indian States and UT : Rs. ${totalGdp}%.2f (Billion)")
   }
 }
